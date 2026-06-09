@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel King's Imperial</title>
+  </head>
+  <body>
+    <script>
+      const nativeFetch = window.fetch;
+      if (nativeFetch) {
+        try {
+          Object.defineProperty(window, 'fetch', {
+            configurable: true,
+            enumerable: true,
+            get: () => nativeFetch,
+            set: (val) => { console.warn('Ignoring attempt to overwrite window.fetch'); }
+          });
+        } catch (e) {
+          console.error('Failed to seal window.fetch', e);
+        }
+      }
+    </script>
+    <script>
+      window.onerror = function(message, source, lineno, colno, error) {
+        const div = document.createElement('div');
+        div.style.position = 'fixed';
+        div.style.top = '0';
+        div.style.left = '0';
+        div.style.width = '100%';
+        div.style.height = '100%';
+        div.style.backgroundColor = 'rgba(255, 0, 0, 0.95)';
+        div.style.color = 'white';
+        div.style.padding = '20px';
+        div.style.zIndex = '999999';
+        div.style.fontFamily = 'monospace';
+        div.style.overflow = 'auto';
+        div.innerHTML = `
+          <h1 style="margin-top:0;">Uncaught Error: ${message}</h1>
+          <p><b>Source:</b> ${source}</p>
+          <p><b>Line:</b> ${lineno} | <b>Col:</b> ${colno}</p>
+          <pre>${error && error.stack ? error.stack : 'No stack trace available'}</pre>
+        `;
+        document.body.appendChild(div);
+        return false;
+      };
+      window.addEventListener('unhandledrejection', function(event) {
+        const div = document.createElement('div');
+        div.style.position = 'fixed';
+        div.style.top = '0';
+        div.style.left = '0';
+        div.style.width = '100%';
+        div.style.height = '100%';
+        div.style.backgroundColor = 'rgba(255, 0, 0, 0.95)';
+        div.style.color = 'white';
+        div.style.padding = '20px';
+        div.style.zIndex = '999999';
+        div.style.fontFamily = 'monospace';
+        div.style.overflow = 'auto';
+        div.innerHTML = `
+          <h1 style="margin-top:0;">Unhandled Promise Rejection</h1>
+          <pre>${event.reason ? (event.reason.stack || event.reason) : 'No reason details'}</pre>
+        `;
+        document.body.appendChild(div);
+      });
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
