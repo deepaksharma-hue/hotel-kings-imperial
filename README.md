@@ -2,42 +2,13 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-A **premium, modern restaurant and hotel website** built with React + TypeScript + Vite. Features a fully functional admin panel, real-time Firebase database sync, AI-powered chatbot, table bookings, online orders, and a stunning glassmorphic UI.
+# Run and deploy your AI Studio app
 
----
+This contains everything you need to run your app locally.
 
-## ✨ Features
+View your app in AI Studio: https://ai.studio/apps/3b78f93e-eb13-4c04-9754-20725ec124c6
 
-- 🍽️ **Live Menu Management** — Admin can add, edit, delete dishes with photos and prices in real-time
-- 🛒 **Online Food Ordering** — Customers can browse, add to cart, and place orders (Dine-in / Takeaway / Delivery)
-- 🏠 **Room Bookings** — View and book hotel rooms with full details and amenities
-- 📅 **Table Booking System** — Customers can reserve tables; admin gets live notifications
-- 💰 **Online Payments** — UPI QR, Card, Net Banking, and Cash on Delivery support
-- 🤖 **AI Chatbot (Gemini 2.5 Flash)** — Floating AI assistant that reads live menu, rooms, and pricing to answer customer queries
-- 🔴 **Real-time Firebase Sync** — All admin changes instantly reflect for all visitors worldwide
-- 🔐 **Secure Admin Panel** — Password-protected dashboard with SHA-256 hashed credentials
-- 📸 **Gallery & Memories** — Ambiance gallery and memories section with admin upload support
-- ⭐ **Customer Reviews** — Review submission and management system
-- 💾 **Hybrid Storage** — LocalStorage + IndexedDB (100MB) + Firebase cloud sync
-- 🖼️ **Auto Image Compression** — Canvas-based compression keeps images under 120KB
-
----
-
-## 🚀 Tech Stack
-
-| Technology | Usage |
-|---|---|
-| React 18 + TypeScript | Frontend Framework |
-| Vite 6 | Build Tool |
-| Tailwind CSS v4 | Styling |
-| Framer Motion | Animations |
-| Firebase Realtime DB | Cloud Database |
-| Google Gemini 2.5 Flash | AI Chatbot |
-| IndexedDB (native) | Local Offline Storage |
-
----
-
-## 🛠️ Run Locally
+## Run Locally
 
 **Prerequisites:** Node.js 18+
 
@@ -75,10 +46,24 @@ A **premium, modern restaurant and hotel website** built with React + TypeScript
 Access the admin dashboard at `/#admin`
 
 - **Default Username:** `admin`
-- **Default Password:** `*****`
+- **Default Password:** `admin`
 - Change your password from the Settings tab inside the admin panel.
 
 ---
+
+## 🌐 Deploy to Netlify
+
+1. Push code to GitHub.
+2. Go to [Netlify](https://netlify.com) → **"Add new site" → "Import an existing project"**.
+3. Connect your GitHub repository.
+4. Set build settings:
+   - **Build command:** `npm run build`
+   - **Publish directory:** `dist`
+5. Add Environment Variables:
+   - `VITE_DATABASE_URL`
+   - `VITE_GEMINI_API_KEY`
+6. Click **Deploy Site** ✅
+
 ---
 
 ## 📁 Project Structure
@@ -105,15 +90,3 @@ Access the admin dashboard at `/#admin`
 ## 📄 License
 
 This project is proprietary. All rights reserved.
-
-
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
