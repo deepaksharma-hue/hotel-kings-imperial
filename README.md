@@ -46,25 +46,8 @@ View your app in AI Studio: https://ai.studio/apps/3b78f93e-eb13-4c04-9754-20725
 Access the admin dashboard at `/#admin`
 
 - **Default Username:** `admin`
-- **Default Password:** `admin`
-- Change your password from the Settings tab inside the admin panel.
-
----
-
-## 🌐 Deploy to Netlify
-
-1. Push code to GitHub.
-2. Go to [Netlify](https://netlify.com) → **"Add new site" → "Import an existing project"**.
-3. Connect your GitHub repository.
-4. Set build settings:
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-5. Add Environment Variables:
-   - `VITE_DATABASE_URL`
-   - `VITE_GEMINI_API_KEY`
-6. Click **Deploy Site** ✅
-
----
+- **Default Password:** `*****`
+- Change your password from the Settings tab inside the admin 
 
 ## 📁 Project Structure
 
